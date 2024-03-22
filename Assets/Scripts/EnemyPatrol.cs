@@ -8,7 +8,7 @@ public class EnemyPatrol : MonoBehaviour, IDamageable
     private Animator animator;
     private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer
     private bool movingToPoint1 = true;
-    private int Health = 1;
+    public int Health = 1;
     public GameObject powerOrb;
 
     private void Start()
@@ -57,7 +57,18 @@ public class EnemyPatrol : MonoBehaviour, IDamageable
 
     public void OnHit(int damage)
     {
-        OnDeath();
+        if(Health > 0)
+        {
+            Health--;
+
+
+        }
+        if (Health <= 0)
+        {
+            OnDeath();
+        }
+
+
         Debug.Log("hit enemy");
     }
 

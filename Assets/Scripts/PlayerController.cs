@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int orbCollected = 0;
     private void Start()
     {
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
         orbCollected = 0;
@@ -84,11 +83,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         // Check the direction of movement and flip sprite accordingly
         if (moveInput > 0)
         {
-            spriteRenderer.flipX = false; // Moving right
+            animator.Play("right");// Moving right
         }
         else if (moveInput < 0)
         {
-            spriteRenderer.flipX = true; // Moving left
+            animator.Play("left"); // Moving left
         }
     }
 
