@@ -16,11 +16,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int Health;
     public GameObject Restart;
     public int orbCollected = 0;
+    public GameObject[] charIndex;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
         orbCollected = 0;
+        animator = charIndex[PlayerDataHandler.Instance.characterIndex].GetComponent<Animator>();
+        charIndex[PlayerDataHandler.Instance.characterIndex].SetActive(true);
     }
 
     private void Update()

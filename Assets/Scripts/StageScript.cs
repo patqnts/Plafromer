@@ -7,9 +7,19 @@ using UnityEngine.UI;
 public class StageScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject chooseCharacter;
     public void LoadStage(string sceneName)
     {
+        if(sceneName == "Stage1")
+        {
+
+        }
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void SelectIndex(int CharIndex)
+    {
+        PlayerDataHandler.Instance.characterIndex = CharIndex;
     }
 
     public Button stage1Button;
